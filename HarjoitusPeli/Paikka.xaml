@@ -1,0 +1,14 @@
+﻿<UserControl x:Class="HarjoitusPeli.Paikka"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:oma="clr-namespace:HarjoitusPeli"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid x:Name="nelio" MouseDown="nelio_MouseDown">
+        <Rectangle x:Name="sisa" Width="Auto" Height="Auto" Stroke="Black">
+        </Rectangle>
+        <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Name="testilabel"></Label>
+    </Grid>
+</UserControl>

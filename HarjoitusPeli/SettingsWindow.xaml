@@ -1,0 +1,61 @@
+﻿<Window x:Class="HarjoitusPeli.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:oma="clr-namespace:HarjoitusPeli"
+        WindowStyle="ToolWindow"
+        x:Name="ikkuna"
+        Title="Lautapeli - Asetukset" MinHeight="235" MinWidth="500" Height="0" Width="500" MaxWidth="700" MaxHeight="400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>        
+        <StackPanel Grid.Column="0" Orientation="Vertical">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                <Button FontWeight="Bold" x:Name="pelaaja1Button" Height="30" Width="100" VerticalAlignment="Top" Click="Pelaaja_Click" Margin="10,30,0,0">P_elaaja 1:</Button>
+                <TextBox x:Name="pelaaja1Box" Width="175" Height="30" VerticalAlignment="Top" Margin="20,30,0,0">
+                    <TextBox.Text>
+                        <Binding ElementName="ikkuna" Path="Pelaaja1" Mode="OneWayToSource" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <oma:PelkkiaMerkkeja />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
+                <Button FontWeight="Bold" x:Name="pelaaja2Button" Height="30" Width="100" VerticalAlignment="Top" Click="Pelaaja_Click" Margin="10,20">_Pelaaja 2:</Button>
+                <TextBox x:Name="pelaaja2Box" Width="175" Height="30" VerticalAlignment="Top" Margin="10,20">
+                    <TextBox.Text>
+                        <Binding ElementName="ikkuna" Path="Pelaaja2" Mode="OneWayToSource" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <oma:PelkkiaMerkkeja />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+            </StackPanel>                       
+        </StackPanel>
+        <Grid Grid.Column="1">
+            <Label VerticalAlignment="Top" Margin="0,15,0,0" HorizontalAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" FontSize="14">Pituus ja leveys</Label>
+            <ComboBox VerticalAlignment="Top" Margin="0,55,0,0" HorizontalAlignment="Center" Loaded="ComboBox_Loaded" SelectionChanged="ComboBox_SelectionChanged" Width="70" Text="Koko">
+            </ComboBox>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                <Label Margin="0,31,0,0" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" HorizontalContentAlignment="Center">Laudan värit</Label>
+                <Button FontWeight="Bold" x:Name="variButton1" HorizontalAlignment="Center" Margin="7" Width="70" Click="Vari_Click">Vä_ri 1</Button>
+                <Button FontWeight="Bold" x:Name="variButton2" HorizontalAlignment="Center" Margin="7" Width="70" Click="Vari_Click">Vär_i 2</Button>
+            </StackPanel>
+        </Grid>                        
+        <StackPanel VerticalAlignment="Bottom" Orientation="Horizontal" Grid.Column="0">
+            <Label Margin="15,0,0,15" VerticalAlignment="Center" FontWeight="Bold" FontSize="14">Peli:</Label>
+            <RadioButton x:Name="tammiButton" Margin="10,0,0,15" Checked="Peli_Checked" GroupName="groupPeli" VerticalAlignment="Center">_Tammi</RadioButton>
+            <RadioButton IsChecked="True" x:Name="breakButton" Margin="10,0,5,15" Checked="Peli_Checked" GroupName="groupPeli" VerticalAlignment="Center">_Breakthrough</RadioButton>
+            <StackPanel HorizontalAlignment="Left">
+            <Button x:Name="aloitaButton" FontWeight="Bold" Height="25" Width="75" VerticalAlignment="Center" Margin="23,0,0,5" Click="Aloita_Click" Content="_Aloita"/>
+                <Button FontWeight="Bold" Height="25" Width="75" VerticalAlignment="Center" Margin="23,5,0,8" Click="Peruuta_Click">Peruuta</Button>
+            </StackPanel>
+        </StackPanel>
+        <Label x:Name="virheLabel" Margin="15,0,0,5" Foreground="Red" FontSize="10" FontWeight="Bold" VerticalAlignment="Bottom"></Label>
+
+    </Grid>
+</Window>

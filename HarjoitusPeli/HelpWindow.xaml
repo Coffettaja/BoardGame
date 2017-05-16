@@ -1,0 +1,14 @@
+﻿<Window x:Class="HarjoitusPeli.HelpWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Avustus" MinHeight="230" MinWidth="500" Height="200" Width="200" ResizeMode="NoResize">
+    <DockPanel>
+        <TextBlock DockPanel.Dock="Top" Width="450" Height="150" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Center">Nappuloita liikutellaan valitsemalla hiirellä ensin liikuteltava nappula ja sen jälkeen ruutu johon nappula halutaan siirtää.
+        <LineBreak /> Nappula voi siirtyä aina yhden ruudun viistoon tai suoraan eteenpäin jos kyseessä on tyhjä ruutu.
+            <LineBreak /> Nappula voi syödä vastustajan nappulan siirtyessään viistoon mutta ei suoraan siirtyessä.
+            <LineBreak /> Peli loppuu kun jompikumpi saa nappulan siirrettyä omasta aloitussuunnastaan katsottuna takariville.
+        <LineBreak /> Uuden pelin voi aloittaa päämenusta File -> Uusi peli
+        </TextBlock>
+        <Button HorizontalAlignment="Right" Width="60" Height="25" Margin="0,0,30,10" DockPanel.Dock="Bottom" Click="Button_Click">OK</Button>
+    </DockPanel>
+</Window>
